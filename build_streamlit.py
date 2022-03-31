@@ -11,16 +11,17 @@ import pandas as pd
     
 df_restaurant=pd.read_csv(r'C:\Users\KINGSLEY\OneDrive\Documents\GitHub\-Build_week\restaurant_data.csv') # restaurant 
 
-    
+df_pub=pd.read_csv(r'C:\Users\KINGSLEY\OneDrive\Documents\GitHub\-Build_week\pubs_data.csv') 
+
+df_hotel=pd.read_csv(r'C:\Users\KINGSLEY\OneDrive\Documents\GitHub\-Build_week\hotels_data.csv')
 
 
-def analysis():
-    pass
 
 
-      
-def recommeded_analysis():
-    pass
+
+
+
+
 
 
 # objectives of work
@@ -43,14 +44,34 @@ def outline():
     
 # methods and show data
 def methodology():
-    st.dataframe(df_restaurant[:10])  
+    st.markdown('#### Data used was London Hotels, Restaurant and Pubs, scraped from [yelp](https://www.yelp.co.uk/search?find_desc=&find_loc=London%2C+United+Kingdom&ns=1) website \n')
+    
+    st.markdown('### ***Restaurant Data***')
+    st.dataframe(df_restaurant)
+
+    st.markdown('### ***Pubs Data***')
+    st.dataframe(df_pub)
+
+    st.markdown('### ***Hotels Data***')
+    st.dataframe(df_hotel)
+    pass
 
 
 
 
+def analysis():
+    
+    pass
+
+
+      
+def recommeded_analysis():
+    pass
 
 
 
+
+#  Output in the Streamlit App.
 def main():
     #st.title('Kojo')
     page = st.sidebar.selectbox(
