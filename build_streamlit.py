@@ -1,3 +1,4 @@
+# imputing libraries
 import yfinance as yf
 import streamlit as st
 import matplotlib.pyplot as plt
@@ -8,43 +9,29 @@ import pandas as pd
 #input data into dataframe
 
     
-df_restaurant=pd.read_csv(r'C:\Users\KINGSLEY\OneDrive\Documents\GitHub\-Build_week\restaurant_data.csv')
-    
-print(df_restaurant)
+df_restaurant=pd.read_csv(r'C:\Users\KINGSLEY\OneDrive\Documents\GitHub\-Build_week\restaurant_data.csv') # restaurant 
 
-def average():
-    page1 = st.sidebar.selectbox(
-            "Select a Page",
-            [
-            "Average Rating",
+df_pub=pd.read_csv(r'C:\Users\KINGSLEY\OneDrive\Documents\GitHub\-Build_week\pubs_data.csv') 
 
-            'Box Plot'
-          
-        ]
-            )
-
-    #First Page
-     
-    st.sidebar.checkbox('Show data') 
-    st.subheader('comparision of Avarage Ratings of Data')  
-    if page1 == "Average Rating ":
-        st.sidebar.checkbox('Show data')
-    
-            #st.header('Body Mass Index data')
-            
-
-    elif page1== 'Box Plot':
-        pass
+df_hotel=pd.read_csv(r'C:\Users\KINGSLEY\OneDrive\Documents\GitHub\-Build_week\hotels_data.csv')
 
 
-    
+
+
+
+
+
+
+
+
+# objectives of work
 def objectives():
     st.header('*The objectives of the project is to:* \n' )  
     st.markdown('### 1. Analysed Pubs, Hotels and Restaurants business in London \n' 
 
                 '### 2. Present recommendation on what Business is more appealing to people in London')
         
-    
+# outline   
 def outline():
     st.markdown('### 1. Project Objectives \n ' 
 
@@ -55,19 +42,42 @@ def outline():
                 '### 4. Conclusion and Recommendation')
         
     
-
+# methods and show data
 def methodology():
-    st.dataframe(df_restaurant[:10])  
+    st.markdown('#### Data used was London Hotels, Restaurant and Pubs, scraped from [yelp](https://www.yelp.co.uk/search?find_desc=&find_loc=London%2C+United+Kingdom&ns=1) website \n')
+    
+    st.markdown('### ***Restaurant Data***')
+    st.dataframe(df_restaurant)
+
+    st.markdown('### ***Pubs Data***')
+    st.dataframe(df_pub)
+
+    st.markdown('### ***Hotels Data***')
+    st.dataframe(df_hotel)
+    pass
 
 
 
 
+def analysis():
+    
+    pass
 
+
+      
+def recommeded_analysis():
+    pass
+
+
+
+
+#  Output in the Streamlit App.
 def main():
     #st.title('Kojo')
     page = st.sidebar.selectbox(
         "Content", 
         [
+            "Title",
             "Presentation Outline",
             "Objectives",
             "Methodology",
@@ -77,11 +87,13 @@ def main():
         
     )
     
+    if page=='Title':
+        pass
+
     #First Page
-    if page == "Presentation Outline":
+    elif page == "Presentation Outline":
         outline()
 
-        pass
 
     #Second Page
     elif page == "Objectives":
@@ -96,14 +108,14 @@ def main():
 
     #Fourth Page
     elif page == "Analysis of Results":
-
-        average()
+        analysis()
+        
 
 
     #Fifth page
     elif page == "Conclusion and Recommendation":
+        recommeded_analysis()
         
-        pass
     
 
 if __name__ == "__main__":
