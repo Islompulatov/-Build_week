@@ -29,9 +29,9 @@ pub_sum, pub_price_mean = df_pub['pub_reviews'].sum(), df_pub['pub_price'].mean(
 res_sum, res_price_mean = df_restaurant['restaurant_reviews'].sum(), df_restaurant['restaurant_price'].mean()
 hot_sum, hotel_price_mean = df_hotel['hotel_reviews'].sum(), df_hotel['hotel_price'].mean()
 
-pub_sum1, pub_price_mean = df_pub['pub_reviews'].sum(), df_pub['pub_price'].mean()
-res_sum1, res_price_mean = df_restaurant['restaurant_reviews'].sum(), df_restaurant['restaurant_price'].mean()
-hot_sum1, hotel_price_mean = df_hotel['hotel_reviews'].sum(), df_hotel['hotel_price'].mean()
+pub_sum1, pub_price_mean = df_pub['pub_ratings'].sum(), df_pub['pub_price'].mean()
+res_sum1, res_price_mean = df_restaurant['restaurant_ratings'].sum(), df_restaurant['restaurant_price'].mean()
+hot_sum1, hotel_price_mean = df_hotel['hotel_ratings'].sum(), df_hotel['hotel_price'].mean()
 
 
 res1 = df_restaurant['restaurant_ratings'].mean()
@@ -68,18 +68,18 @@ def outline():
 
                 '### 3. Analysis \n'
 
-                '### 4. Main Analysis \n'
+                '### 4. Recommendation \n'
 
-                '### 5. Final Result \n'
+                '### 5. Main Analysis \n'
 
-                '### 6. Recommendation')
+                '### 6. Conclusion')
         
     
 # methods and show data
 def methodology():
     st.markdown('#### Data used was London Hotels, Restaurants and Pubs, scraped from [yelp](https://www.yelp.co.uk/search?find_desc=&find_loc=London%2C+United+Kingdom&ns=1) website \n')
     #st.header("Converted Price into Number")
-    st.markdown("### Converting Pounds:  £ = 1, ££ = 2, £££ = 3, ££££ = 4")
+    st.markdown("### Converting Pounds:  £ = 1, ££ = 2, £££ = 3, ££££ = 4  where one represent low price, two and three represents medium price and four represent high price")
 
     st.markdown('### ***Restaurants Data***')
     st.dataframe(df_restaurant)
@@ -401,7 +401,7 @@ def bar_chart_location():
     fig = px.bar(
                 area, x = "Location Name", y = "Total Number",
                                 template = 'seaborn',
-                                title = '', 
+                                 
                                 
                                         )
 
@@ -419,7 +419,7 @@ def bar_chart_food():
     fig = px.bar(
                 area, x = "Cuisines Name", y = "Total Number",
                                 template = 'seaborn',
-                                title = 'Top Cuisines in worst case', 
+                    
                                 
                                         )
 
@@ -440,7 +440,7 @@ def bar_chart_best_location():
     fig = px.bar(
                 area, x = "Location Name", y = "Total Number",
                                 template = 'seaborn',
-                                title = 'Top Rated 10 Location', 
+                                 
                                 
                                         )
 
@@ -458,7 +458,7 @@ def bar_chart_best_food():
     fig = px.bar(
                 area, x = "Cuisines Name", y = "Total Number",
                                 template = 'seaborn',
-                                title = 'Top Rated 10 Cuisines', 
+                                 
                                 
                                         )
 
@@ -469,7 +469,7 @@ def bar_chart_best_food():
 #### compare
 
 location = df_restaurant['restaurant_neighbourhoods'].value_counts()
-loc1 = location.nlargest(10)
+loc4 = location.nlargest(5)
 
 def pie_chart_location():
 
@@ -481,8 +481,8 @@ def pie_chart_location():
 
         fig1, (ax1, ax2) = plt.subplots(ncols=2, figsize=(10, 5))
 
-        ax1.pie(loc1, explode=explode1, labels=labels1, shadow=True, startangle=90)
-        ax2.pie(loc1, explode=explode2, labels=labels2, shadow=True, startangle=90)
+        ax1.pie(loc4, explode=explode1, labels=labels1, shadow=True, startangle=90)
+        ax2.pie(loc4, explode=explode2, labels=labels2, shadow=True, startangle=90)
 
         ax1.set_xlabel('Bad Data', size=15)
         ax2.set_xlabel('Best Data', size=15)
@@ -507,8 +507,8 @@ def pie_chart_food():
 
     fig1, (ax1, ax2) = plt.subplots(ncols=2, figsize=(10, 5))
 
-    ax1.pie(loc1, explode=explode3, labels=labels3, shadow=True, startangle=90)
-    ax2.pie(loc1, explode=explode4, labels=labels4, shadow=True, startangle=90)
+    ax1.pie(loc4, explode=explode3, labels=labels3, shadow=True, startangle=90)
+    ax2.pie(loc4, explode=explode4, labels=labels4, shadow=True, startangle=90)
 
     ax1.set_xlabel('Bad Data', size=15)
     ax2.set_xlabel('Best Data', size=15)
@@ -551,9 +551,11 @@ def main():
             "Objectives",
             "Methodology",
             "Analysis",
+            "Recommendation",
             "Analysis of Results",
             "Final Result",
-            "Recommendation"
+        
+            
         ],
         
     )
@@ -561,6 +563,11 @@ def main():
     if page=='Title':
        st.title("Most popular business in London by opinion customers")
        st.image("Downloads\\london.jpg", use_column_width = True)
+       st.header("Team Members: \n")
+       st.markdown("#### 1. Kingsley Opoku \n" 
+                   "#### 2. Islom Pulatov \n"
+                   "#### 3. Ritthuja Kandasamy ")
+       
     
 
     #First Page
@@ -592,31 +599,26 @@ def main():
             [
                 "Bar Chart for Average Reviews",
                 "Bar Chart for Average Ratings",
-                "Bar Chart for Total Average",
                 "Box Plot for Restaurants, Hotels and Pubs",
-                "STD for Restaurants Price,  Hotels Price and Pubs Price",
-                "Bar Chart for Reviews in Sum",
-                "Bar Chart for Reviews in Mean",
                 "Bar Chart for Ratings in Sum",
-                "Bar Chart for Ratings in Mean" 
+                "Bar Chart for Ratings in Mean",
+                "Bar Chart for Reviews in Sum",
+                "Bar Chart for Reviews in Mean", 
             ],
             
         )
 
          
          if  page1 == "Bar Chart for Average Reviews":
-                st.title("Bar and Pie Chart for Average Reviews")
+                st.title("Comparing Average Reviews")
                 bar_chart_for_average_reviews()
                 bar_chart_for_average_reviews1()
 
          elif page1 == "Bar Chart for Average Ratings":
-                st.title("Bar and Pie Chart for Average Ratings")
+                st.title("Comparing average Ratings")
                 bar_chart_for_average_ratings()
                 bar_chart_for_average_ratings1()
             
-         elif page1 == "Bar Chart for Total Average":
-                st.title("Bar Chart for Total Average")
-                bar_chart__total()
 
          elif page1 == "Box Plot for Restaurants, Hotels and Pubs":
                st.title("Box Plot for Restaurants, Hotels and Pubs")
@@ -624,11 +626,6 @@ def main():
                box_chart__hot()
                box_chart__pub()
 
-         elif page1 == "STD for Restaurants Price,  Hotels Price and Pubs Price":
-                st.title("Mean and STD for Restaurants Price,  Hotels Price and Pubs Price")
-                std__res()
-                std__hot()
-                std__pub()
 
          elif page1 == "Bar Chart for Reviews in Sum":
                 st.title("Bar and Pie Chart for Reviews in Sum")
@@ -650,6 +647,12 @@ def main():
                 barChart_profit_ratings()
                 barChart_profit_ratings1()
 
+    elif page == "Recommendation":
+        st.title("Recommendation")
+        st.header("Restaurants")
+        st.image("Downloads\\res.jpg", use_column_width = True)
+        st.balloons()
+
 
 
     # fifth page
@@ -661,7 +664,9 @@ def main():
                 "Top Location in worst case",
                 "Top Cuisines in worst case",
                 "Top Rated 10 Location",
-                "Top Rated 10 Cuisines"
+                "Top Rated 10 Cuisines",
+                "Recommend"
+
             ],
             
         )
@@ -682,21 +687,23 @@ def main():
                   st.title("Top Rated 10 Cuisines")
                   bar_chart_best_food()
 
+           elif page2 == "Recommend":
+                st.title("Recommend Location")
+                pie_chart_location()
+                st.title("Recommend Cuisines")
+                pie_chart_food()
+
 
     #Fifth page
     elif page == "Final Result":
-        st.title("Final Result")
-        st.header("Restaurants")
-        st.image("Downloads\\res.jpg", use_column_width = True)
-        st.balloons()
+        st.title("Conclusion")
+        st.markdown("#### We are delighted for giving us this opportunity to present our results here")
+        st.image("Downloads\\thank1.jpg", use_column_width = True)
+        
+        
 
 
-    elif page == "Recommendation":
-        st.title("Recommended Location")
-        pie_chart_location()
-        st.title("Recommended Cuisines")
-        pie_chart_food()
-
+    
     
     
     
