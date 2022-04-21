@@ -1,4 +1,4 @@
-# imputing libraries
+
 
 from tkinter.tix import COLUMN
 import streamlit as st
@@ -78,7 +78,7 @@ def outline():
 # methods and show data
 def methodology():
     st.markdown('#### Data used was London Hotels, Restaurants and Pubs, scraped from [yelp](https://www.yelp.co.uk/search?find_desc=&find_loc=London%2C+United+Kingdom&ns=1) website \n')
-    #st.header("Converted Price into Number")
+    st.header("Converted Price into Number")
     st.markdown("### Converting Pounds:  £ = 1, ££ = 2, £££ = 3, ££££ = 4  where one represent low price, two and three represents medium price and four represent high price")
 
     st.markdown('### ***Restaurants Data***')
