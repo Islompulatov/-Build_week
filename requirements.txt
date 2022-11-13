@@ -9,3 +9,4 @@ Pillow==9.3.0
 pyparsing==3.0.9
 packaging==21.3
 plotly==5.11.0
+seaborn==1.16.0
