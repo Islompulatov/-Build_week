@@ -4,9 +4,7 @@ base58==2.0.0
 matplotlib==3.6.1
 numpy==1.23.4
 pip==22.3.1
-yfinance==0.1.54
 Pillow==9.3.0
-pyparsing==3.0.9
 packaging==21.3
 plotly==5.11.0
 seaborn==1.16.0
