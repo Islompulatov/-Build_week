@@ -10,11 +10,11 @@ import numpy as np
 #input data into dataframe
 
     
-df_restaurant=pd.read_csv(r'restaurant_data.csv') # restaurant 
+df_restaurant=pd.read_csv(r'datas/restaurant_data.csv') # restaurant 
 
-df_pub=pd.read_csv(r'pubs_data.csv') 
+df_pub=pd.read_csv(r'datas/pubs_data.csv') 
 
-df_hotel=pd.read_csv(r'hotels_data.csv')
+df_hotel=pd.read_csv(r'datas/hotels_data.csv')
 
 mapper_res = {'£':1, '££':2, '£££':3, '££££':4}
 df_restaurant['restaurant_price'] = df_restaurant['restaurant_price'].map(mapper_res)
@@ -560,18 +560,19 @@ def main():
     
     if page=='Title':
        st.title("Most popular business in London by opinion customers")
-       st.image("title-image.jpg", use_column_width = True)
+       st.image("images/title-image.jpg", use_column_width = True)
        st.header("Team Members: \n")
        st.markdown("#### 1. Kingsley Opoku \n" 
                    "#### 2. Islom Pulatov \n"
                    "#### 3. Ritthuja Kandasamy ")
        
+       st.write("Source Code [Link](https://github.com/Islompulatov/-Build_week)", unsafe_allow_html=True)
     
 
     #First Page
     elif page == "Presentation Outline":
         st.title("Presentation Outline")
-        st.image("pub-london.jpg", use_column_width = True)
+        st.image("images/pub-london.jpg", use_column_width = True)
         outline()
 
 
@@ -579,7 +580,7 @@ def main():
     elif page == "Objectives":
        
         objectives()
-        st.image("london.jpg", use_column_width = True)
+        st.image("images/london.jpg", use_column_width = True)
         
     
     #Third Page
@@ -648,7 +649,7 @@ def main():
     elif page == "Recommendation":
         st.title("Recommendation")
         st.header("Restaurants business")
-        st.image("restaurant-london.jpg", use_column_width = True)
+        st.image("images/restaurant-london.jpg", use_column_width = True)
         st.balloons()
 
 
@@ -702,7 +703,7 @@ def main():
         st.markdown("#### The best occupied area for restaurant is Soho")
         st.markdown("#### The most popular type of restaurant is British")
         st.markdown("#### Our final suggestion to investors that to open British restaurant in Soho")
-        st.image("final-london.jpg", use_column_width = True)
+        st.image("images/final-london.jpg", use_column_width = True)
         
         
 
