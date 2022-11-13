@@ -14,11 +14,11 @@ numpy==1.23.4
 packaging==21.3
 pandas==1.5.1
 Pillow==9.3.0
-plotly @ file:///opt/conda/envs/env/conda-bld/plotly_1666890789797/work/packages/python/plotly/dist/plotly-5.11.0.tar.gz
+plotly==5.11.0
 ply==3.11
 pyparsing==3.0.9
 PyQt5==5.15.7
-seaborn @ file:///C:/b/abs_57lhqka9xt/croot/seaborn_1666299132726/work
+seaborn==0.12.0
 urllib3==1.26.12
 webencodings==0.5.1
 Werkzeug==2.2.2
