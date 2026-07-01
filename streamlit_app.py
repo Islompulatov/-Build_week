@@ -560,7 +560,7 @@ def main():
     
     if page=='Title':
        st.title("Most popular business in London by opinion customers")
-       st.image("images/title-image.jpg", use_column_width = True)
+       st.image("images/title-image.jpg", width="stretch")
        st.header("Team Members: \n")
        st.markdown("#### 1. Kingsley Opoku \n" 
                    "#### 2. Islom Pulatov \n"
@@ -572,7 +572,7 @@ def main():
     #First Page
     elif page == "Presentation Outline":
         st.title("Presentation Outline")
-        st.image("images/pub-london.jpg", use_column_width = True)
+        st.image("images/pub-london.jpg", width="stretch")
         outline()
 
 
@@ -580,7 +580,7 @@ def main():
     elif page == "Objectives":
        
         objectives()
-        st.image("images/london.jpg", use_column_width = True)
+        st.image("images/london.jpg", width="stretch")
         
     
     #Third Page
@@ -649,7 +649,7 @@ def main():
     elif page == "Recommendation":
         st.title("Recommendation")
         st.header("Restaurants business")
-        st.image("images/restaurant-london.jpg", use_column_width = True)
+        st.image("images/restaurant-london.jpg", width="stretch")
         st.balloons()
 
 
@@ -703,7 +703,7 @@ def main():
         st.markdown("#### The best occupied area for restaurant is Soho")
         st.markdown("#### The most popular type of restaurant is British")
         st.markdown("#### Our final suggestion to investors that to open British restaurant in Soho")
-        st.image("images/final-london.jpg", use_column_width = True)
+        st.image("images/final-london.jpg", width="stretch")
         
         
 
